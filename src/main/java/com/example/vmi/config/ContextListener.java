@@ -1,18 +1,13 @@
 package com.example.vmi.config;
 
-
 import com.mysql.cj.jdbc.AbandonedConnectionCleanupThread;
-import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.logging.Logger;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 public class ContextListener implements ServletContextListener{
@@ -22,7 +17,7 @@ public class ContextListener implements ServletContextListener{
    @Override
    public void contextInitialized(ServletContextEvent sce) {
       logger.info("contextInitialized()");
-      //For enabling DI (autowiring)
+      //For enabling Dependency Injection (autowiring)
       WebApplicationContextUtils.getWebApplicationContext(sce.getServletContext())
               .getAutowireCapableBeanFactory()
               .autowireBean(this);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.vmi.config;
 
 import org.springframework.context.MessageSource;
@@ -16,10 +11,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-/**
- *
- * @author Md Zahid Raza
- */
 @Configuration
 @EnableWebMvc
 public class DispatcherConfig extends WebMvcConfigurerAdapter{

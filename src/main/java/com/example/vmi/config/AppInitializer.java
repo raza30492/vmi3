@@ -16,7 +16,7 @@ public class AppInitializer implements WebApplicationInitializer{
       AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
       ctx.register(AppConfig.class);
       ctx.setServletContext(servletContext);
-      //Add Listeners
+      //Add Listeners: Order of adding is important
       servletContext.addListener(new ContextLoaderListener(ctx));
       servletContext.addListener(ContextListener.class);
       
@@ -26,29 +26,4 @@ public class AppInitializer implements WebApplicationInitializer{
       servlet.addMapping("/");
    }
    
-   
-   /*
-   @Override
-   public void onStartup(ServletContext servletContext) throws ServletException {
-      // Create the 'root' Spring application context
-      AnnotationConfigWebApplicationContext rootContext =
-        new AnnotationConfigWebApplicationContext();
-      rootContext.register(AppConfig.class);
-
-      // Manage the lifecycle of the root application context
-      servletContext.addListener(new ContextLoaderListener(rootContext));
-      servletContext.addListener(ContextListener.class);
-      
-      // Create the dispatcher servlet's Spring application context
-      AnnotationConfigWebApplicationContext dispatcherContext =
-        new AnnotationConfigWebApplicationContext();
-      dispatcherContext.register(DispatcherConfig.class);
-
-      // Register and map the dispatcher servlet
-      ServletRegistration.Dynamic dispatcher =
-        servletContext.addServlet("dispatcher", new DispatcherServlet(dispatcherContext));
-      dispatcher.setLoadOnStartup(1);
-      dispatcher.addMapping("/");
-   }
-*/
 }
