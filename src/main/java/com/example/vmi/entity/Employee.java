@@ -13,18 +13,20 @@ import javax.persistence.Table;
 public class Employee implements Serializable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EMP_ID", nullable = false, unique = true)
     private Long id;
     
     @Column(name = "NAME", nullable = false)
     private String name;
     
-    @Column(name = "EMAIL", nullable = false)
+    @Column(name = "EMAIL", nullable = true)
     private String email;
     
     @Column(name = "PASSWORD", nullable = false)
     private String password;
+    
+    @Column(name = "MOBILE", nullable = true)
+    private String mobile;
 
     public Employee() {
     }
@@ -65,5 +67,13 @@ public class Employee implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }
